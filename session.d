@@ -37,6 +37,8 @@ import std.conv;
 import std.digest.crc;
 import std.process: executeShell;
 import std.algorithm;
+static import std.process;
+import core.stdc.stdlib;
 
 import cmdopt;
 import conf;
@@ -65,7 +67,7 @@ class BuildSession
 
         version(Windows) 
             executeShell("pause");
-        std.c.process.exit(code);
+        core.stdc.stdlib.exit(code);
     }
 
     void printConfig()
