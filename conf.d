@@ -32,8 +32,9 @@ import std.stdio;
 import std.file;
 import lexer;
 
-version(Windows) string OS = "windows";
-version(linux) string OS = "linux";
+version(Windows) 
+	string OS = "windows";
+else version(linux) string OS = "linux";
 
 final class Config
 {
@@ -43,7 +44,7 @@ final class Config
     {
         if (platformSpecific)
         {
-            string oskey = OS ~ "." ~ key;
+            immutable string oskey = OS ~ "." ~ key;
             if (oskey in data) return true;
         }
         if (key in data) return true;

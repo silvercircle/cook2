@@ -82,7 +82,7 @@ class Exdep
         
         // TODO: check the result
 
-        auto pos = indexOf(name, "@");
+        immutable auto pos = indexOf(name, "@");
         if (pos >= 0)
             formattedRead(name, "%s@%s", &vcs, &hostname);
         else

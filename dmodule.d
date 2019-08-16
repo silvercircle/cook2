@@ -86,7 +86,7 @@ struct Pattern
         }
         else
         {
-            string sym = symbols[position];
+            const string sym = symbols[position];
             if (token == sym)
             {
                 position++;
@@ -321,13 +321,13 @@ final class DModule
 
     void parseVersionStatement()
     {
-        string stat = filter.current;
+        const string stat = filter.current;
         filter.readNext(); // pop version/debug
 
         if (filter.current == "(")
         {
             filter.readNext(); // pop (
-            string id = filter.current;
+            const string id = filter.current;
 
             filter.readNext(); // pop id
             if (filter.current != ")")
